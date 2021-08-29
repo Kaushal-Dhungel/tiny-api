@@ -9,7 +9,7 @@ URL = "https://github.com/kaushal-dhungel/tiny-api"
 EMAIL = "kaushaldhungel01@gmail.com"
 AUTHOR = "Kaushal Dhungel"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.0.1"
+VERSION = "0.0.3"
 
 REQUIRED = [
     'gunicorn',
@@ -33,7 +33,7 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    download_url = 'https://github.com/Kaushal-Dhungel/tiny-api/archive/refs/tags/0.0.1.tar.gz',
+    download_url = 'https://github.com/Kaushal-Dhungel/tiny-api/archive/refs/tags/0.0.3.tar.gz',
     packages=['tiny-api'],
     install_requires=REQUIRED,
     include_package_data=True,
