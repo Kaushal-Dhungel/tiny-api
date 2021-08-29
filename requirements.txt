@@ -1,0 +1,7 @@
+gunicorn
+Jinja2
+parse
+PyJWT
+python-dotenv
+WebOb
+whitenoise
