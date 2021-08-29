@@ -9,16 +9,18 @@ URL = "https://github.com/kaushal-dhungel/tiny-api"
 EMAIL = "kaushaldhungel01@gmail.com"
 AUTHOR = "Kaushal Dhungel"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.0.4"
+VERSION = "0.0.5"
 
 REQUIRED = [
-    'gunicorn',
-    'Jinja2',
-    'parse',
-    'PyJWT',
-    'python-dotenv',
-    'WebOb',
-    'whitenoise'
+    'greenlet==1.1.1'
+    'gunicorn==20.1.0'
+    'Jinja2==3.0.1'
+    'MarkupSafe==2.0.1'
+    'parse==1.19.0'
+    'PyJWT==2.1.0'
+    'python-dotenv==0.19.0'
+    'WebOb==1.8.7'
+    'whitenoise==5.3.0'
 ]
 
 
@@ -33,7 +35,7 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    download_url = 'https://github.com/Kaushal-Dhungel/tiny-api/archive/refs/tags/0.0.4.tar.gz',
+    download_url = 'https://github.com/Kaushal-Dhungel/tiny-api/archive/refs/tags/0.0.5.tar.gz',
     packages=['tiny-api'],
     install_requires=REQUIRED,
     include_package_data=True,
