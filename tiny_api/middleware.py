@@ -1,7 +1,7 @@
 from jwt.exceptions import InvalidSignatureError
 from webob import Request, Response
-from Requests import Request
-from jwt_token import decode_access_token
+from .Requests import Request
+from .jwt_token import decode_access_token
 
 class Middleware:
     def __init__(self,app) -> None:

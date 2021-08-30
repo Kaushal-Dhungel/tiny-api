@@ -1,8 +1,8 @@
-from jwt_token import decode_access_token
-from JsonResponse import JsonResponse
+from .jwt_token import decode_access_token
+from .JsonResponse import JsonResponse
 from jwt.exceptions import InvalidSignatureError, InvalidTokenError, InvalidAlgorithmError, ExpiredSignatureError
-from constants import SECRET_KEY
-from get_env_var import get_env_vars
+from .constants import SECRET_KEY
+from .get_env_var import get_env_vars
 
 def authenticated(func):
 

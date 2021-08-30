@@ -1,4 +1,4 @@
-from webob import Response, response
+from webob import Response
 import json
 
 def JsonResponse(result:dict,status_code):

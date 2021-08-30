@@ -1,8 +1,8 @@
 from datetime import datetime, timedelta
 import jwt
 import random
-from constants import SECRET_KEY, ALGORITHM
-from get_env_var import get_env_vars
+from .constants import SECRET_KEY, ALGORITHM
+from .get_env_var import get_env_vars
 
 
 def create_access_token(user_id,username,seconds,secret_key= None):

@@ -1,5 +1,5 @@
 from webob import Request as WebobRequest
-from constants import SECRET_KEY
+from .constants import SECRET_KEY
 
 class Request(WebobRequest):
 

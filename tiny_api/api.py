@@ -1,12 +1,12 @@
 from webob import Response
-from Requests import Request
+from .Requests import Request
 from parse import parse
 import inspect
 import os
 from jinja2 import Environment, FileSystemLoader
 from whitenoise import WhiteNoise
-from middleware import Middleware
-from constants import METHODS
+from .middleware import Middleware
+from .constants import METHODS
 
 
 class API:

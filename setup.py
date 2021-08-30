@@ -9,7 +9,7 @@ URL = "https://github.com/kaushal-dhungel/tiny-api"
 EMAIL = "kaushaldhungel01@gmail.com"
 AUTHOR = "Kaushal Dhungel"
 REQUIRES_PYTHON = ">=3.6.0"
-VERSION = "0.0.8"
+VERSION = "0.0.9"
 
 REQUIRED = [
     'WebOb==1.8.7',
@@ -34,7 +34,7 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    download_url = 'https://github.com/Kaushal-Dhungel/tiny-api/archive/refs/tags/0.0.8.tar.gz',
+    download_url = 'https://github.com/Kaushal-Dhungel/tiny-api/archive/refs/tags/0.0.9.tar.gz',
     packages=['tiny_api'],
     install_requires=REQUIRED,
     include_package_data=True,
