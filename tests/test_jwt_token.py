@@ -1,4 +1,4 @@
-from jwt_token import create_access_token,decode_access_token, create_refresh_token
+from tiny_api.jwt_token import create_access_token,decode_access_token, create_refresh_token
 import uuid
 
 def test_create_decode_token():

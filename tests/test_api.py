@@ -1,4 +1,4 @@
-from api import Tinyapi
+from tiny_api.api import Tinyapi
 from webob import Response
 api = Tinyapi()
 

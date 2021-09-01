@@ -1,5 +1,5 @@
-from Responses import JsonResponse
-from Status import HTTP_200_OK
+from tiny_api.Responses import JsonResponse
+from tiny_api.Status import HTTP_200_OK
 import json
 
 def test_json_response():

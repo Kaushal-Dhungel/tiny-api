@@ -1,6 +1,6 @@
 from webob import request
-from auth import  is_authenticated
-from Requests import Request
+from tiny_api.auth import  is_authenticated
+from tiny_api.Requests import Request
 
 def test_is_authenticated_without_token():
     res = is_authenticated(Request(environ={}))
