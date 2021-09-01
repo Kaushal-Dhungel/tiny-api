@@ -1,15 +1,17 @@
 from datetime import datetime, timedelta
+from typing import Any
 import jwt
-import random
 from .constants import SECRET_KEY, ALGORITHM
 from .get_env_var import get_env_vars
+import uuid
 
 
-def create_access_token(user_id,username,seconds,secret_key= None):
+def create_access_token(user_id:int, username:str, seconds:int, secret_key:str = None) -> str:
     """
     Use the proper SECRET_KEY you specified for your app while creating the access token.
     """
-    secret_key = get_env_vars('SECRET_KEY',default=SECRET_KEY)
+    if secret_key is None:
+        secret_key = get_env_vars('SECRET_KEY',default=SECRET_KEY)
     
     expire = datetime.utcnow() + timedelta(seconds=seconds)
 
@@ -22,12 +24,13 @@ def create_access_token(user_id,username,seconds,secret_key= None):
     return access_token
 
 
-def decode_access_token(data,secret_key= None):
+def decode_access_token(data:str, secret_key:str = None) -> Any:
     """
     Decode your access token
     """
 
-    secret_key = get_env_vars('SECRET_KEY',default=SECRET_KEY)
+    if secret_key is None:
+        secret_key = get_env_vars('SECRET_KEY',default=SECRET_KEY)
 
     try:
         token_data = jwt.decode(data, key = secret_key, algorithms=ALGORITHM)
@@ -37,6 +40,8 @@ def decode_access_token(data,secret_key= None):
         return False, e
 
 
-def create_refresh_token():
-    return '1234' + str(random.randint(1,4)) + str(random.randint(4,9)) + str(random.randint(0,9))
-
+def create_refresh_token() -> uuid.UUID:
+    """
+    It uses uuid4 to generate a random ID. You can use your own algorithm for  generating a refresh token.
+    """
+    return uuid.uuid4()

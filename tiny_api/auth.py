@@ -1,14 +1,18 @@
 from .jwt_token import decode_access_token
-from .JsonResponse import JsonResponse
+from .Responses import JsonResponse
 from jwt.exceptions import InvalidSignatureError, InvalidTokenError, InvalidAlgorithmError, ExpiredSignatureError
 from .constants import SECRET_KEY
 from .get_env_var import get_env_vars
+from .Requests import Request
+from webob import Response
+from typing import Any, Callable
 
-def authenticated(func):
+
+def authenticated(func:Callable) -> Callable:
 
     secret_key = get_env_vars('SECRET_KEY',default=SECRET_KEY)
 
-    def inner(request,*args,**kwargs):
+    def inner(request:Request ,*args:Any, **kwargs:Any) -> Response:
 
         bearer = request.bearer
 
@@ -55,7 +59,7 @@ def authenticated(func):
     return inner
 
 
-def is_authenticated(request):
+def is_authenticated(request: Request) -> bool:
     """
     check weather the requested user is authenticated or not
     """

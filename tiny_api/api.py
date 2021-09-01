@@ -7,9 +7,10 @@ from jinja2 import Environment, FileSystemLoader
 from whitenoise import WhiteNoise
 from .middleware import Middleware
 from .constants import METHODS
+from typing import Any,Callable
 
 
-class API:
+class Tinyapi:
 
     def __init__(self,templates_dir="templates",static_dir="static") -> None:
         self.routes = {}
@@ -18,15 +19,12 @@ class API:
         self.whitenoise = WhiteNoise(self.wsgi_app,root= static_dir)
         self.middleware = Middleware(self)
 
-    def __call__(self,environ,start_response, *args, **kwds):
+    def __call__(self,environ:dict, start_response:Callable, *args:Any, **kwrgs:Any)-> Any:
         path_info = environ["PATH_INFO"]
         
         # if the url starts with 'static' then let it be served by Whitenoise
         # Here Whitenoise wraps the app as middleware does
         if path_info.startswith('/static'):
-            
-            print('path info is',path_info)
-            print(path_info[len("/static"):])
 
             environ["PATH_INFO"] = path_info[len("/static"):]
             return self.whitenoise(environ, start_response)
@@ -34,13 +32,13 @@ class API:
         return self.middleware(environ, start_response)
 
 
-    def add_middleware(self,middleware_cls):
+    def add_middleware(self,middleware_cls:Callable) -> None:
         """
         add a middleware class to your app
         """
         self.middleware.add(middleware_cls)
 
-    def wsgi_app(self,environ,start_response):
+    def wsgi_app(self,environ:dict,start_response:Callable) -> Response:
         """
         a basic wsgi app, basically created for Whitenoise(middleware) to handle static files
         """
@@ -49,14 +47,14 @@ class API:
         return response(environ,start_response)
 
 
-    def template(self,template_name,context= None):
+    def template(self,template_name:str,context= None)-> Any:
         """
         for rendering templates
         """
         return self.templates_env.get_template(template_name).render(**context)
 
     
-    def add_exception_handler(self,exception_handler):
+    def add_exception_handler(self,exception_handler:Callable) -> None:
         """
         Add your own custom exception handler.
         
@@ -68,13 +66,13 @@ class API:
         """
         self.exception_handler = exception_handler
 
-    def route(self,path,allowed_methods = None):
+    def route(self,path:str, allowed_methods = None)-> Callable:
         """
         A decorator function to handle routes in your app.
         """
         assert path not in self.routes, f"{path} route already exists"
 
-        def wrapper(handler):  
+        def wrapper(handler:Callable) -> Callable:  
             
             # if the route handler is a class
             if inspect.isclass(handler):
@@ -104,7 +102,7 @@ class API:
 
         return wrapper
 
-    def handle_request(self,request):
+    def handle_request(self,request:Request) -> Response:
 
         """
         Handles the request coming from the client.
@@ -155,7 +153,7 @@ class API:
         
         return response
 
-    def find_handler(self,request_path):
+    def find_handler(self,request_path:str) -> Any:
         """
         Finds the handler method for each requested path.
         If no handler is present, returns None
@@ -169,7 +167,7 @@ class API:
         return None,None
 
 
-    def default_response(self,response):
+    def default_response(self,response:Response) -> None:
         """
         method for handling 404 error
         """
