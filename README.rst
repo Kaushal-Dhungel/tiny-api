@@ -2,7 +2,7 @@ Tiny-api
 --------
 
 **Tiny-api is a python web framework for creating Restful APIs written for learning purpose out of curiosity.** 
-**It is written with the helpof**\ `Webob`_\ **, a library which provides** 
+**It is written with the help of** \ `Webob`_\ **, a library which provides** 
 **objects for HTTP requests and responses.**
 
 Installation
