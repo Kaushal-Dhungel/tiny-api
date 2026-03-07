@@ -34,7 +34,7 @@ class Tinyapi:
 
     def add_middleware(self,middleware_cls:Callable) -> None:
         """
-        add a middleware class to your app
+        add a custom middleware class to your app
         """
         self.middleware.add(middleware_cls)
 

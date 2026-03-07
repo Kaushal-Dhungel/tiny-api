@@ -2,3 +2,6 @@
 dist
 tiny_api.egg-info
 __pycache__
+Example/
+.venv
+Makefile

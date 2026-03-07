@@ -1,5 +1,8 @@
 from webob import Response
 from .Requests import Request
+from .jwt_token import decode_access_token
+from .constants import SECRET_KEY
+from .get_env_var import get_env_vars
 from typing import Any, Callable
 
 class Middleware:
@@ -18,14 +21,21 @@ class Middleware:
         return response(environ,start_response)
 
     def tweak_request(self,request:Request) -> Request:
+        secret_key = get_env_vars('SECRET_KEY', default=SECRET_KEY)
         try:
             bearer = request.authorization[1]
             if bearer is not None:
                 request.bearer = bearer
 
+            if request.bearer is None:
+                request.is_authenticated = False
+            else:
+                has_validity, _ = decode_access_token(request.bearer, secret_key)
+                request.is_authenticated = has_validity
             return request
 
         except Exception:
+            request.is_authenticated = False
             return request
 
     

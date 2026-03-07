@@ -5,7 +5,7 @@ from typing import Any
 class Request(WebobRequest):
 
     # user_params = {}
-    # is_authenticated = False
+    is_authenticated = False
     # user = 'AnonymousUser'
     # user_id = None
     # secret_key = SECRET_KEY
@@ -17,7 +17,7 @@ class Request(WebobRequest):
 
         self.user_params = {}
         self.bearer = None
-        # self.is_authenticated = False
+        self.is_authenticated = False
         # self.secret_key = SECRET_KEY
         # self.user = 'AnonymousUser'
         # self.user_id = None
