@@ -1,0 +1,52 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tiny-api"
+version = "0.1.1"
+description = "A tiny web framework to create APIs rapidly"
+readme = { file = "README.rst", content-type = "text/x-rst" }
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+  { name = "Kaushal Dhungel", email = "kaushaldhungel01@gmail.com" }
+]
+keywords = ["python api", "tiny api", "python backend api"]
+classifiers = [
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+  "Operating System :: OS Independent",
+]
+dependencies = [
+  "WebOb>=1.8.7,<2.0",
+  "PyJWT>=2.1.0,<3.0",
+  "gunicorn>=20.1.0,<24.0",
+  "parse>=1.19.0,<2.0",
+  "Jinja2>=3.0.1,<4.0",
+  "whitenoise>=5.3.0,<7.0",
+  "python-dotenv>=0.19.0,<2.0",
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=7.0,<9.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/kaushal-dhungel/tiny-api"
+Documentation = "https://kaushal-dhungel.github.io/tiny-api-docs"
+Repository = "https://github.com/kaushal-dhungel/tiny-api"
+Download = "https://github.com/Kaushal-Dhungel/tiny-api/archive/refs/tags/0.1.1.tar.gz"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["tiny_api*"]
