@@ -39,7 +39,7 @@ Important Links
 3. Pypi :- https://pypi.org/project/tiny-api/
 
 Credits
--------
+--------
 
 Thanks to Jahongir Rahmonov’s awesome blog that helped me get started
 with this project. `Visit his blog`_
