@@ -38,11 +38,7 @@ Important Links
 2. Documentation(github) :- https://github.com/Kaushal-Dhungel/tiny-api-docs
 3. Pypi :- https://pypi.org/project/tiny-api/
 
-Credits
+
 -------
-
-Thanks to Jahongir Rahmonov’s awesome blog that helped me get started
-with this project. `Visit his blog`_
-
 .. _Webob: https://docs.pylonsproject.org/projects/webob/en/stable/
-.. _Visit his blog: https://rahmonov.me/posts/write-python-framework-part-one/
+

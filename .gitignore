@@ -5,3 +5,4 @@ __pycache__
 Example/
 .venv
 Makefile
+.pytest_cache
